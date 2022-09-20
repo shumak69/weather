@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-blend-mode: screen;
+  min-height: 100vh;
+  background: linear-gradient(limegreen, transparent), linear-gradient(90deg, skyblue, transparent),
+    linear-gradient(-90deg, coral, transparent);
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1400px;
+  width: calc(100vw - 100px);
+  padding: 40px;
+}
+
+.current {
+  min-height: 250px;
+  width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 0 10px;
+  padding-bottom: 20px;
+  & img {
+    display: block;
+    width: 150px;
+    height: 150px;
+  }
+  &__addition {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+.current__wrapper,
+.daily__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.daily {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  gap: 50px;
+  & .daily__item {
+    transition: 0.3s all;
+    height: 210px;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 0 10px;
+    padding-bottom: 20px;
+    & img {
+      display: block;
+      width: 100px;
+      height: 100px;
+    }
+  }
+  &__wrapper {
+    justify-content: space-evenly;
+    & h2 {
+      font-size: 32px;
+    }
+  }
+  &__addition {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  &__description {
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: rgb(0, 49, 185);
+  }
+  &__detailed {
+    padding: 5px;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 2px;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(233, 162, 10);
+    line-height: 1rem;
+    &::before {
+      content: "";
+      width: calc(100% - 10px);
+      height: 2px;
+      background-color: rgb(233, 162, 10);
+      position: absolute;
+      left: 5px;
+      bottom: 0;
+    }
+  }
+  &__min {
+    color: rgb(0, 49, 185);
+    font-weight: 600;
+  }
+  &__max {
+    color: rgb(245, 61, 55);
+    font-weight: 600;
+  }
+}
