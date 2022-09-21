@@ -1,4 +1,14 @@
-export interface IDaily {
+interface Weather {
+  weather: { id: number; main: string; description: string; icon: string }[];
+  clouds: number;
+  wind_speed: number;
+  sunrise: number;
+  sunset: number;
+  pressure: number;
+  humidity: number;
+}
+
+export interface IDaily extends Weather {
   dt: number;
   temp: {
     day: number;
@@ -7,24 +17,18 @@ export interface IDaily {
     night: number;
     eve: number;
   };
-  clouds: number;
-  wind_speed: number;
-  sunrise: number;
-  sunset: number;
-  pressure: number;
-  humidity: number;
-  weather: { id: number; main: string; description: string; icon: string }[];
   [prop: string | number]: number | object;
 }
 
-export interface ICurrent {
-  humidity: number;
-  pressure: number;
-  sunrise: number;
-  sunset: number;
+export interface ICurrent extends Weather {
   temp: number;
   feels_like: number;
-  weather: { id: number; main: string; description: string; icon: string }[];
-  wind_speed: number;
   [prop: string | number]: number | object;
+  visibility: number;
+}
+
+export interface IHourly extends Weather {
+  dt: number;
+  temp: number;
+  feels_like: number;
 }

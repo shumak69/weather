@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { IDaily } from "../types/weather";
-import { getCelsius, getDate, getDayOfMonth } from "../utils/weather";
+import { getCelsius, getDate, getDay, getDayOfMonth } from "../utils/weather";
 
 function Daily(props: IDaily) {
   const [isDetailedOpen, setisDetailedOpen] = useState(false);
   return (
     <div className="daily__item" style={{ height: isDetailedOpen ? 350 : undefined }}>
       <div className="daily__wrapper">
+        <div className="daily__day">{getDay(props.dt)}</div>
         <img src={`http://openweathermap.org/img/wn/${props.weather[0].icon}@4x.png`} alt="cloud" />
         <div>
-          <h2>{getDayOfMonth(props.dt)}</h2>
-          <div>Ср. темп. {getCelsius(props.temp.max)} °C</div>
+          <h2>{getCelsius(props.temp.eve)} °C</h2>
+          <div>{getDayOfMonth(props.dt)}</div>
         </div>
       </div>
       <div className="daily__addition">

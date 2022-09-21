@@ -1,5 +1,5 @@
 export function getCelsius(temperature: number) {
-  return (temperature - 273.15).toFixed(1);
+  return (temperature - 273.15).toFixed(0);
 }
 
 function getZero(num: number): string | number {
@@ -20,4 +20,14 @@ export function getDate(date: number) {
 export function getDayOfMonth(date: number) {
   const newDate = new Date(date * 1000);
   return `${newDate.getDate()} ${newDate.toLocaleString("ru", { month: "short" })}`;
+}
+
+export function getDay(date: number) {
+  const newDate = new Date(date * 1000);
+  return `${newDate.toLocaleString("ru", { weekday: "short" })}`;
+}
+
+export function getHour(date: number) {
+  const newDate = new Date(date * 1000);
+  return getZero(newDate.getHours());
 }
