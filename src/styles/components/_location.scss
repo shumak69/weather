@@ -1,0 +1,38 @@
+@import "../styles";
+.location {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  gap: 20px;
+  &__search {
+    width: 220px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+    padding: 10px;
+    &:focus {
+      outline: none;
+      border: 2px solid rgb(255, 196, 2);
+    }
+  }
+  &__button {
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    background-color: $red;
+    height: 30px;
+    padding: 10px;
+    line-height: 12px;
+  }
+}
+
+.required {
+  color: rgb(255, 242, 0);
+  margin-top: 5px;
+  font-weight: 600;
+}

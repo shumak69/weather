@@ -1,5 +1,5 @@
 import { ICurrent } from "../types/weather";
-import { getCelsius, getDate } from "../utils/weather";
+import { getCelsius, getDate, ucFirst } from "../utils/weather";
 function Current(props: ICurrent) {
   return (
     <div className="current">
@@ -8,7 +8,7 @@ function Current(props: ICurrent) {
         <h2> {getCelsius(props.temp)} °C</h2>
       </div>
       <div className="current__addition">
-        <div>{props.weather[0].description}</div>
+        <div>{ucFirst(props.weather[0].description)}</div>
         <div>Ощущается как {getCelsius(props.feels_like)} °C</div>
         <div>Влажность {props.humidity} %</div>
         <div>Давление {props.pressure} hPa</div>

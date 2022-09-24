@@ -17,9 +17,11 @@ export function getDate(date: number) {
   )}`;
 }
 
-export function getDayOfMonth(date: number) {
-  const newDate = new Date(date * 1000);
-  return `${newDate.getDate()} ${newDate.toLocaleString("ru", { month: "short" })}`;
+export function getDayOfMonth(date: number, offset: number) {
+  const timeOffset = new Date().getTimezoneOffset() * 60 * 1000;
+  const dateUTC = new Date(+new Date((date + offset) * 1000) + +timeOffset);
+  // const newDate = new Date(date * 1000);
+  return `${dateUTC.getDate()} ${dateUTC.toLocaleString("ru", { month: "short" })}`;
 }
 
 export function getDay(date: number) {
@@ -27,7 +29,16 @@ export function getDay(date: number) {
   return `${newDate.toLocaleString("ru", { weekday: "short" })}`;
 }
 
-export function getHour(date: number) {
-  const newDate = new Date(date * 1000);
-  return getZero(newDate.getHours());
+export function getHour(date: number, offset: number) {
+  const timeOffset = new Date().getTimezoneOffset() * 60 * 1000;
+  const dateUTC = new Date(+new Date((date + offset) * 1000) + +timeOffset);
+  // const newDate = new Date(date * 1000);
+  return getZero(dateUTC.getHours());
+}
+
+export function ucFirst(str: string) {
+  if (!str.length) {
+    return;
+  }
+  return str[0].toUpperCase() + str.slice(1);
 }
